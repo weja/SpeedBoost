@@ -1,7 +1,6 @@
 package com.neverseenbefore.weja.speedboost;
  
 
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,24 +16,22 @@ public final class SpeedBoost extends JavaPlugin implements Listener {
     public void onEnable(){
      getServer().getPluginManager().registerEvents(this, this);
     }
-    @Override
-    public void onDisable(){
-    }
+    
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        Player HumanEntity = event.getPlayer();
-        if(HumanEntity.hasPotionEffect(PotionEffectType.SPEED)){
-        	HumanEntity.removePotionEffect(PotionEffectType.SPEED);
-        	 }
-            HumanEntity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
-            event.getPlayer().sendMessage("Speed Boost II has been refreshed!");
+        Player p = event.getPlayer();
+        if(p.hasPermission("speedboost.speedboost")) {
+         p.removePotionEffect(PotionEffectType.SPEED);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
+        }
     }
+    
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event){
-        HumanEntity HumanEntity = event.getPlayer();
-        if(HumanEntity.hasPotionEffect(PotionEffectType.SPEED)){
-        	HumanEntity.removePotionEffect(PotionEffectType.SPEED);
-        	 }
-        HumanEntity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
+        Player p = (Player) event.getPlayer();
+        if(p.hasPermission("speedboost.speedboost")) {
+        	p.removePotionEffect(PotionEffectType.SPEED);
+        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
+        }
     }
 }
