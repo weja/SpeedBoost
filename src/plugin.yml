@@ -1,3 +1,32 @@
 name: SpeedBoost
 main: com.neverseenbefore.weja.speedboost.SpeedBoost
-version: 0.25
+version: 0.3
+
+permissions:
+    speedboost.*:
+        description: Gives Speed Boost III and Jump Boost III
+        children:
+            speedboost.speedboost.one: false
+            speedboost.speedboost.two: false
+            speedboost.speedboost.three: false
+            speedboost.jump.one: false
+            speedboost.jump.two: false
+            speedboost.jump.three: false
+    speedboost.speedboost.one:
+        description: Gives Speed Boost I
+        default: false
+    speedboost.speedboost.two:
+        description: Gives Speed Boost II
+        default: false
+    speedboost.speedboost.three:
+        description: Gives Speed Boost III
+        default: false
+    speedboost.jump.one:
+        description: Gives Jump Boost I
+        default: false
+    speedboost.jump.two:
+        description: Gives Jump Boost II
+        default: false
+    speedboost.jump.three:
+        description: Gives Jump Boost III
+        default: false
