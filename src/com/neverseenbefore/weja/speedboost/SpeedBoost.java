@@ -24,6 +24,10 @@ public final class SpeedBoost extends JavaPlugin implements Listener {
          p.removePotionEffect(PotionEffectType.SPEED);
             p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
         }
+        if(p.hasPermission("speedboost.jump")) {
+        	p.removePotionEffect(PotionEffectType.JUMP);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 18000, 1));
+        }
     }
     
     @EventHandler
@@ -32,6 +36,10 @@ public final class SpeedBoost extends JavaPlugin implements Listener {
         if(p.hasPermission("speedboost.speedboost")) {
         	p.removePotionEffect(PotionEffectType.SPEED);
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 18000, 1));
+        }
+        if(p.hasPermission("speedboost.jump")) {
+        	p.removePotionEffect(PotionEffectType.JUMP);
+        p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 18000, 1));
         }
     }
 }
